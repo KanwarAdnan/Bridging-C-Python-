@@ -1,7 +1,87 @@
+/*
+    * Module Name : * LinkedList
+    * Author :  * Kanwar Adnan
+    * Description : * This is the implementation of Linkedlist in C. It will be used in python scripts
+    to gain speed.
+
+    * Functions:
+        bool isEmpty();
+
+        bool isIndex(int index);
+
+        struct Node * getHead();
+
+        struct Node * getLast();
+
+        struct Node * getNodeById(int index);
+
+        int getLength();
+            This functions returns the length of the linkedlist.
+
+        int getFirst();
+            This function returns the first element.
+
+        int getLast_();
+            This functions returns the integer value of last node.
+
+        int getMiddle();
+            This function returns the middle elemnt.
+
+        int getElementById(int index);
+            This function returns element at a specific index.
+
+        void insertAtHead(int value);
+            This method inserts a node at the head of the linkedlist.
+
+        void insertAtLast(int value);
+            This method inserts a node at the last of the linkedlist.
+
+        void removeFirst();
+            This method removes first node.
+
+        void removeLast();
+            This method removes last node.
+
+        void removeByValue(int value);
+            This metohd removes a node by it's value.
+
+        void removeById(int index);
+            This method removes a node by it's id.
+
+        void insertAtId(int index , int value);
+            This method inserts a node at a specific id.
+
+        bool doesExists(int value);
+            This method returns whether an element is present or not.
+
+        void deleteList();
+            This method deletes the complete linkedlist.
+
+        void reverse();
+            This method reverses the complete linkedlist.
+
+        void printRev();
+            This method prints the complete linekdlist in reversed order.
+
+        void print();
+            This function prints the complete linkedlist.
+
+
+    * For any changes or upgrades you may fork and apply for the merge.
+    
+    * Note:
+        You can also contact me or report any bug. Well To be honest this isn't 
+        perfect some problems may occur in python program.
+
+    * Contact:
+        * email : kanwaradnanrajput@gmail.com
+*/
 /* Including required headers */
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+
+/* Defining format for boolean values */
 #define formatBool(b) ((b) ? "true" : "false")
 
 /* Our Node */
@@ -57,11 +137,13 @@ struct Node *newNode(){
 }
 
 /* function NO 1 */
+/* This functions returns the length of the linkedlist.*/
 int getLength(){
     return length;
 }
 
 /* function NO 2 */
+/* This method inserts a node at the head of the linkedlist.*/
 void insertAtHead(int value){
     struct Node *temp;
     temp = (struct Node *)malloc(sizeof(struct Node));
@@ -79,6 +161,7 @@ void insertAtHead(int value){
 }
 
 /* function NO 3 */
+/* This method inserts a node at the last of the linkedlist.*/
 void insertAtLast(int value){
     if (isEmpty()){
         insertAtHead(value);
@@ -94,6 +177,7 @@ void insertAtLast(int value){
 }
 
 /* function NO 4 */
+/* This function returns element at a specific index.*/
 int getElementById(int index){
     if (isIndex(index)){
         struct Node * temp = head;
@@ -112,6 +196,7 @@ int getElementById(int index){
 }
 
 /* function NO 5 */
+/* This function prints the complete linkedlist. */
 void print(){
     if (!isEmpty()){
         struct Node *temp = head;
@@ -127,6 +212,7 @@ void print(){
 }
 
 /* function NO 6 */
+/* This function returns the first element. */
 int getFirst(){
     if (!isEmpty()){
         return (head->data);
@@ -134,6 +220,7 @@ int getFirst(){
 }
 
 /* function NO 7 */
+/* This function returns the last element. */
 int getLast_(){
     if (!isEmpty()){
         return (last->data);
@@ -141,16 +228,19 @@ int getLast_(){
 }
 
 /* function NO 8 */
+/* This function returns whether linkedlist is empty or not. */
 bool isEmpty(){
     return (head == NULL);
 }
 
 /* function NO 9 */
+/* This function returns whether the index is valid or not. */
 bool isIndex(int index){
     return (index <= (length) && (index > 0));
 }
 
 /* function NO 10 */
+/* This function removes the first element. */
 void removeFirst(){
     if (isEmpty()){
         return;
@@ -170,6 +260,7 @@ void removeFirst(){
 }
 
 /* function NO 11 */
+/* This function removes the last element. */
 void removeLast(){
     if (isEmpty()){
         return;
@@ -189,6 +280,7 @@ void removeLast(){
 }
 
 /* function NO 12 */
+/* This function remove an element at the specific index. */
 void removeById(int index){
     if (isIndex(index)){
         if (index == 1){
@@ -213,6 +305,7 @@ void removeById(int index){
 }
 
 /* function NO 13 */
+/* This function inserts an element at the specific index. */
 void insertAtId(int index , int value){
     if (isIndex(index)){
         if (index == 1){
@@ -240,6 +333,7 @@ void insertAtId(int index , int value){
 }
 
 /* function NO 14 */
+/* This function returns the head of the linkedlist. */
 struct Node * getHead(){
     if (!isEmpty()){
         return head;
@@ -247,6 +341,7 @@ struct Node * getHead(){
 }
 
 /* function NO 15 */
+/* This function returns the last node of the linkedlist. */
 struct Node * getLast(){
     if (!isEmpty()){
         return last;
@@ -254,6 +349,7 @@ struct Node * getLast(){
 }
 
 /* function NO 16 */
+/* This function returns the specific node by index. */
 struct Node * getNodeById(int index){
     if (isIndex(index)){
         // if index is 1 then return the head
@@ -292,6 +388,7 @@ void printRevHelper(struct Node * current){
 }
 
 /* function NO 17 */
+/* This function prints the complete linkedlist in reversed order. */
 void printRev(){
     printf("NULL");
     printRevHelper(getHead());
@@ -299,6 +396,7 @@ void printRev(){
 }
 
 /* function NO 18 */
+/* This function returns whether an element exits or not in the linkedlist. */
 bool doesExists(int value){
     if (!isEmpty()){
         if (getFirst() == value){
@@ -323,6 +421,7 @@ bool doesExists(int value){
 }
 
 /* function NO 19 */
+/* This function removes an element by its value. */
 void removeByValue(int value){
     if (!isEmpty()){
         if ( (head->data == value) )
@@ -351,8 +450,8 @@ void removeByValue(int value){
     printf("\n");
 }
 
-// We can also use length as it is. Cuz it's C hhhhhhh
 /* function NO 20 */
+/* This function returns the middle element. */
 int getMiddle(){
     int mid = 0;
     if (length % 2 == 0)
@@ -363,6 +462,7 @@ int getMiddle(){
 }
 
 /* function NO 21 */
+/* This function deletes the complete linkedlist. */
 void deleteList(){
     if (!isEmpty()){
         struct Node * prev = NULL;
@@ -377,6 +477,7 @@ void deleteList(){
 }
 
 /* function NO 22 */
+/* This function reverses the complete linkedlist. */
 void reverse(){
     if (!isEmpty()){
         if (length == 1){
@@ -438,5 +539,5 @@ int main(){
 
     printf("\n\nThe Code Worked");
     printf("\n\tCreated By Kanwar Adnan");
-    
+
 }
